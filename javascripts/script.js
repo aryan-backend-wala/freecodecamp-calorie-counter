@@ -72,15 +72,15 @@ function isInvalidInput(str){
 function getCaloriesFromInputs(list){
   let calories = 0;
   for(let i=0;i<list.length;i++){
-    const currval = cleanInputString(list[i].value);
-    const invalidInputMatch = isInvalidInput(currval);
-    // console.log(currval);
+    const currVal = cleanInputString(list[i].value);
+    const invalidInputMatch = isInvalidInput(currVal);
+    // console.log(currVal);
     if(invalidInputMatch){
       alert(`Invalid Input: ${invalidInputMatch[0]}`);
       isError = true;
       return null;
     }
-    calories += Number(currval);
+    calories += Number(currVal);
     // console.log(calories);
   }
   return calories;
@@ -89,6 +89,7 @@ function getCaloriesFromInputs(list){
 function clearForm(){
   const inputContainer = Array.from(document.querySelectorAll('.input-container'));
   for(let element of inputContainer){
+    console.log(element);
     element.innerHTML = "";
   }
   budgetNumberInput.value = '';
@@ -102,7 +103,4 @@ addEntryButton.addEventListener('click', addEntry);
 calorieCounter.addEventListener('submit', calculateCalories);
 
 clearButton.addEventListener('click', clearForm);
-
-// const calculate = document.getElementById('calculate');
-// calculate.addEventListener('click', calculateCalories);
 
